@@ -8,8 +8,8 @@ app.use(express.json())
 app.use(cors())
 
 mongoose.set('strictQuery', false);
-mongoose.connect("mongodb://0.0.0.0:27017/base")
-//mongoose.connect("mongodb+srv://lorenzocolinoh:hola123@clustertodo.le6wbvt.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
+//mongoose.connect("mongodb://0.0.0.0:27017/base")
+mongoose.connect("mongodb+srv://lorenzocolinoh:hola123@clustertodo.le6wbvt.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
 
 
 app.get("/all", autenticado ,async (req,res)=> {
