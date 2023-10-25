@@ -43,6 +43,20 @@ app.delete("/delete/:userId/:title", async (req,res)=> {
     res.send("Todo eliminado")
 })
 
+app.put("/todo/:id", async (req,res)=> {
+    const {title} = req.body
+    const { id } = req.params
+    const todo = Todo.find({_id: id})
+    if (todo && title){
+        todo.title = title
+        await todo.save()
+        res.status(200).json(todo)
+    }    
+    else{
+        res.status(400).send("Todo no encontrado")
+    }
+
+})
 // MiddleWare 
 
 async function autenticado (req,res,next){
